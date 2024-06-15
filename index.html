@@ -1,0 +1,97 @@
+<html>
+    <head>
+        <title>Tubes Jartel</title>
+    </head>
+    <body>
+        <script>
+            var script = document.createElement("script");
+            script.type = "text/javascript";
+          
+            script.addEventListener("load", function (event) {
+              const config = {
+                name: "KELOMPOK 1",
+                meetingId: "simon",
+                apiKey: "552ded3d-5f1a-4d51-9bdf-df70fceb7793",
+          
+                containerId: null,
+          
+                micEnabled: true,
+                webcamEnabled: true,
+                participantCanToggleSelfWebcam: true,
+                participantCanToggleSelfMic: true,
+          
+                chatEnabled: true,
+                raiseHandEnabled: true,
+                screenShareEnabled: true,
+          
+                joinScreen: {
+                    visible: true,
+                    title: "Video Conference",
+                    meetingUrl: "jartel.com",
+                },
+
+                recording: {
+                    enabled: true,
+                    webhookUrl: "https://www.videosdk.live/callback",
+                    // awsDirPath: `/meeting-recordings/${meetingId}/`, // Pass it only after configuring your S3 Bucket credentials on Video SDK dashboard
+                    autoStart: false,
+                    theme: "DARK", // DARK || LIGHT || DEFAULT
+                
+                    layout: {
+                      type: "SIDEBAR", // "SPOTLIGHT" | "SIDEBAR" | "GRID"
+                      priority: "PIN", // "SPEAKER" | "PIN",
+                      gridSize: 3,
+                    },
+                  },
+                
+                  permissions: {
+                    toggleRecording: true,
+                    //...
+                  },
+
+                  pin: {
+                    allowed: true,
+                    layout: "SPOTLIGHT"
+                  },
+
+                  permissions: {
+                    askToJoin: false,
+                    toggleParticipantWebcam: false,
+                    toggleParticipantMic: false,
+                    toggleParticipantScreenshare: true,
+                    removeParticipant: true,
+                    endMeeting: true,
+                    pin: true,
+                    changeLayout: true,
+                    rejoinButtonEnabled: true,
+
+                  },
+
+                  layout: {
+                    type: "SIDEBAR", // "SPOTLIGHT" | "SIDEBAR" | "GRID"
+                    priority: "PIN", // "SPEAKER" | "PIN",
+                    gridSize: 3,
+                    theme: "DARK", // DARK || LIGHT || DEFAULT
+                  },
+
+                  waitingScreen: {
+                    imageUrl: "<imageUrl || lottieUrl>",
+                    text: "Connecting to the meeting...",
+                    },
+                /*
+          
+               Other Feature Properties
+                
+                */
+              };
+          
+              const meeting = new VideoSDKMeeting();
+              meeting.init(config);
+            });
+          
+            script.src =
+              "https://sdk.videosdk.live/rtc-js-prebuilt/0.3.38/rtc-js-prebuilt.js";
+            document.getElementsByTagName("head")[0].appendChild(script);
+          </script>
+    </body>
+</html>

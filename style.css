@@ -1,0 +1,41 @@
+/* styles.css */
+
+/* Gaya untuk halaman join */
+.join-screen {
+    background-image: url('path/to/your/background/image.jpg'); /* Ganti dengan path ke gambar background Anda */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Gaya untuk halaman saat masuk ke meeting */
+.meeting-screen {
+    background-image: url('path/to/your/background/image2.jpg'); /* Ganti dengan path ke gambar background Anda */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Gaya untuk tombol Create Room */
+#create-room-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #1b9d23;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#create-room-button:hover {
+    background-color: #7f8e2c;
+}
+
+/* Tambahkan gaya tambahan sesuai kebutuhan */

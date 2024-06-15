@@ -1,0 +1,121 @@
+<html>
+    <head>
+        <title>Tubes Jartel</title>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+    </head>
+    <body>
+        <div class="join-screen">
+            <!-- Konten halaman join -->
+            <h1>Selamat Datang di Video Conference</h1>
+            <button id="create-room-button">Create Room</button>
+        </div>
+
+        <script>
+            var script = document.createElement("script");
+            script.type = "text/javascript";
+          
+            script.addEventListener("load", function (event) {
+              document.getElementById("create-room-button").addEventListener("click", function() {
+                  const config = {
+                    name: "",
+                    meetingId: "",
+                    apiKey: "552ded3d-5f1a-4d51-9bdf-df70fceb7793",
+
+                    
+                    waitingScreen: {
+                      imageUrl: "<imageUrl || lottieUrl>",
+                      text: "Connecting to the meeting...",
+                    },
+                    containerId: null,
+              
+                    micEnabled: true,
+                    webcamEnabled: true,
+                    participantCanToggleSelfWebcam: true,
+                    participantCanToggleSelfMic: true,
+              
+                    chatEnabled: true,
+                    raiseHandEnabled: true,
+                    screenShareEnabled: true,
+                    whiteboardEnabled: true,
+              
+                    joinScreen: {
+                        visible: true,
+                        title: "",
+                        meetingUrl: "",
+                    },
+
+                    
+    
+                    recording: {
+                        enabled: true,
+                        webhookUrl: "https://www.videosdk.live/callback",
+                        // awsDirPath: `/meeting-recordings/${meetingId}/`, // Pass it only after configuring your S3 Bucket credentials on Video SDK dashboard
+                        autoStart: false,
+                        theme: "DARK", // DARK || LIGHT || DEFAULT
+                    
+                        layout: {
+                          type: "SIDEBAR", // "SPOTLIGHT" | "SIDEBAR" | "GRID"
+                          priority: "PIN", // "SPEAKER" | "PIN",
+                          gridSize: 3,
+                        },
+                      },
+                    
+                      permissions: {
+                        toggleRecording: true,
+                        //...
+                      },
+    
+                      pin: {
+                        allowed: true,
+                        layout: "SPOTLIGHT"
+                      },
+    
+                      permissions: {
+                        askToJoin: true,
+                        toggleParticipantWebcam: false,
+                        toggleParticipantMic: false,
+                        toggleParticipantScreenshare: true,
+                        removeParticipant: true,
+                        endMeeting: true,
+                        drawOnWhiteboard: true,
+                        toggleWhiteboard: true,
+                        pin: true,
+                        changeLayout: true,
+                        rejoinButtonEnabled: true
+    
+                      },
+    
+                      layout: {
+                        type: "SIDEBAR", // "SPOTLIGHT" | "SIDEBAR" | "GRID"
+                        priority: "PIN", // "SPEAKER" | "PIN",
+                        gridSize: 3,
+                        theme: "DARK", // DARK || LIGHT || DEFAULT
+                      },
+    
+                      waitingScreen: {
+                        imageUrl: "<imageUrl || lottieUrl>",
+                        text: "Connecting to the meeting...",
+                      },
+                    /*
+              
+                   Other Feature Properties
+                    
+                    */
+                  };
+              
+                  const meeting = new VideoSDKMeeting();
+                  meeting.init(config);
+              });
+            });
+          
+            script.src =
+              "https://sdk.videosdk.live/rtc-js-prebuilt/0.3.38/rtc-js-prebuilt.js";
+            document.getElementsByTagName("head")[0].appendChild(script);
+          </script>
+
+        <div class="meeting-screen">
+            <!-- Konten halaman meeting -->
+            <h1>Anda telah bergabung dalam meeting</h1>
+        </div>
+    </body>
+</html>
